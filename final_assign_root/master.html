@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Books in Quotes</title>
+<style>
+
+/* CSS  GENERAL STRUCTURE */
+html {
+    font-size: 100%;
+}
+
+/* RESET - to override browser defaults */
+
+
+/* GLOBAL STYLES */
+@font-face {
+    font-family: 'Chalkduster';
+    src:url('Chalkduster.ttf.woff') format('woff'),
+        url('Chalkduster.ttf.svg#Chalkduster') format('svg'),
+        url('Chalkduster.ttf.eot'),
+        url('Chalkduster.ttf.eot?#iefix') format('embedded-opentype'); 
+        font-weight: normal;
+        font-style: normal;
+}
+body {
+    font-family: 'Chalkduster';
+    background-color:#AB4B26;
+}
+main {
+    width: 100%;
+    display: flex;
+}
+
+/* TYPOGRAPHY */
+h1, h2, h3, h4, h5, h6 {
+    color:#F5BC6D;
+}
+h1 {
+    font-size: 4em;
+}
+h2 {
+    font-size: 1.3em;
+}
+h3 {
+    font-size: 1.75em;
+}
+p {
+    font-size: 1em;
+}
+
+/* HEADER AND MAIN NAVIGATION */
+header {
+    text-align: center;
+    padding-bottom: 6em;
+}
+header h2 {
+
+}
+
+/* nav ul li a:hover {
+    color: yellow;
+} */
+
+section {
+    /* display: flex; */
+    /* align-items: center;
+    justify-content: center;
+    position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%)  */
+}
+section a:hover {
+    background-color: yellow;
+}
+
+/* LAYOUT */
+.bookRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+.bookRow h4 {
+
+}
+
+img {
+    /* max-width: 90%; */
+    /* bottom: 0px; */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 50%; */
+}
+
+.book.hover {
+    background: url("images/thinkinginsystems-inverted.png") no-repeat;
+    
+}
+
+a {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+/* FOOTER    */
+
+/* "PAGE" SPECIFIC */
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+
+    // black and white images - color on hover!
+
+    function showHover(img) {
+        if (img) {
+            img.src = '/images/thinkinginsystems.png';
+        }
+    }
+
+    function showNormal(img) {
+        if(img) {
+            img.src = '/images/thinkinginsystems-inverted.png'
+        }
+    }
+
+    function init() {
+        
+        var book = document.getElementById('book')
+        if(book.addEventListener) {
+            book.addEventListener('mouseover', function(){showHover(book);}, false);
+            book.addEventListener('mouseout', function(){showNormal(book);}, false);
+        } else {
+            book.attachEvent('mouseover' function(){showHover(book);});
+            book.attachEvent('mouseout' function(){showHover(book);});
+        }
+    }
+
+    function onHover() 
+    {
+        $("#book").attr('src', 'images/thinkinginsystems-inverted.png');
+    }
+
+    function offHover() 
+    {
+        $("#book").attr('src', 'images/thinkinginsystems.png')
+    }
+
+window.onload = init;
+</script>
+
+</head>
+
+<body>
+    <header>
+        <h1>Books in Quotes</h1>
+        <h2>Distilling the essence of books through their most memorable lines.</h2>
+    </header>
+
+<main>
+    <section>
+        <!-- <section class="bookRow"> -->
+            <!-- <h4>""</h4>     -->
+            <a href="thinking-systems.html" id="book">
+                <img src="images/thinkinginsystems.png" alt="Thinking in Systems book cover"
+                onmouseover="onHover();" onmouseout="offHover();"/>
+            </a>
+            <!-- <h4>"</h4> -->
+            <!-- <h1>"<br>"</h1> -->
+        <!-- </section> -->
+        <!-- <section class="bookRow"> -->
+            <!-- <div>""</div>     -->
+        <a href="tegmark-quotes.html"><img src="images/tegmarkbook.png" alt="" style=""></a>
+        <!-- <div></div>
+        </section> -->
+        <a href="code-quotes.html"><img src="images/codepetzold.png"></a>
+        <a href="linux-quotes.html"><img src="images/linuxcommandline.png" alt="" style=""></a>
+        <a href="rand-quotes.html"><img src="images/designersart.png" alt="" style=""></a>
+        <a href="machineage-quotes.html"><img src="images/secondmachineage.png" alt="" style=""></a><a id="algos-cover" href="algos-quotes.html"><img src="images/algostoliveby.png" alt="" style=""></a>
+    </section>    
+</main>
+</body>
+</html>
